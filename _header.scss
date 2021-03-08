@@ -1,0 +1,15 @@
+.header {
+  display: flex;
+  height: 10vh;
+  justify-content: space-between;
+  padding: 0 10%;
+  padding-top: 1rem;
+  font-size: 2rem;
+  p {
+    width: 10vw;
+  }
+  div {
+    width: 10vh;
+    cursor: pointer;
+  }
+}
