@@ -7,11 +7,16 @@ const scroll = new LocomotiveScroll({
 });
 
 const darkBtn = document.querySelector(".dark-btn");
+const fontBtn = document.querySelector(".font-btn");
+const fontColorList = ["black", "blue", "green", "red"];
+let fontColor = fontColorList[0];
+
 darkBtn.onclick = function () {
-  const body = document.querySelector(".body");
+  const body = document.querySelector("body");
   body.classList.toggle("dark");
 };
 
-const changeColor = (e) => {
-  console.log("coucou");
-};
+fontBtn.addEventListener("click", (event) => {
+  const body = document.querySelector("body");
+  body.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+});

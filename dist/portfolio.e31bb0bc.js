@@ -3277,15 +3277,19 @@ var scroll = new _locomotiveScroll.default({
   direction: "vertical"
 });
 var darkBtn = document.querySelector(".dark-btn");
+var fontBtn = document.querySelector(".font-btn");
+var fontColorList = ["black", "blue", "green", "red"];
+var fontColor = fontColorList[0];
 
 darkBtn.onclick = function () {
-  var body = document.querySelector(".body");
+  var body = document.querySelector("body");
   body.classList.toggle("dark");
 };
 
-var changeColor = function changeColor(e) {
-  console.log("coucou");
-};
+fontBtn.addEventListener("click", function (event) {
+  var body = document.querySelector("body");
+  body.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+});
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"}],"../../../../.nvm/versions/node/v15.5.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -3314,7 +3318,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "59353" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51937" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
