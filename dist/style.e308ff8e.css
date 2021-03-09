@@ -25,22 +25,6 @@ a {
   color: white;
 }
 
-.blue {
-  color: blue;
-}
-
-.black {
-  color: black;
-}
-
-.green {
-  color: green;
-}
-
-.red {
-  color: red;
-}
-
 .header {
   display: -webkit-box;
   display: -ms-flexbox;
