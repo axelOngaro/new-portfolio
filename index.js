@@ -5,6 +5,16 @@ const scroll = new LocomotiveScroll({
   smooth: true,
   direction: "vertical",
 });
+console.log(scroll);
+scroll.on("call", (args) => {
+  const skills = document.querySelector(".skills");
+  skills.style.backgroundColor = args;
+});
+
+const turnBlue = () => {
+  const front = document.querySelector(".front");
+  front.style.color = blue;
+};
 
 const darkBtn = document.querySelector(".dark-btn");
 const fontBtn = document.querySelector(".font-btn");

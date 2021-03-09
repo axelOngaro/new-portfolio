@@ -4,3 +4,23 @@
   color: white;
   font-size: 3rem;
 }
+
+.horizontal-scroll {
+  min-height: 50vh;
+  width: 120vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 5rem;
+}
+
+.front {
+  background-color: transparent;
+}
+.back {
+  background-color: transparent;
+}
+
+.db {
+  background-color: transparent;
+}

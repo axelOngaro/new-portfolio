@@ -3276,6 +3276,17 @@ var scroll = new _locomotiveScroll.default({
   smooth: true,
   direction: "vertical"
 });
+console.log(scroll);
+scroll.on("call", function (args) {
+  var skills = document.querySelector(".skills");
+  skills.style.backgroundColor = args;
+});
+
+var turnBlue = function turnBlue() {
+  var front = document.querySelector(".front");
+  front.style.color = blue;
+};
+
 var darkBtn = document.querySelector(".dark-btn");
 var fontBtn = document.querySelector(".font-btn");
 var fontColorList = ["black", "blue", "green", "red"];
