@@ -3276,17 +3276,6 @@ var scroll = new _locomotiveScroll.default({
   smooth: true,
   direction: "vertical"
 });
-console.log(scroll);
-scroll.on("call", function (args) {
-  var skills = document.querySelector(".skills");
-  skills.style.backgroundColor = args;
-});
-
-var turnBlue = function turnBlue() {
-  var front = document.querySelector(".front");
-  front.style.color = blue;
-};
-
 var darkBtn = document.querySelector(".dark-btn");
 var fontBtn = document.querySelector(".font-btn");
 var fontColorList = ["black", "blue", "green", "red"];
@@ -3329,7 +3318,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51937" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50340" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
