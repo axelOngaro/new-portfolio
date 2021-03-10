@@ -3292,6 +3292,19 @@ fontBtn.addEventListener("click", function (event) {
   var body = document.querySelector("body");
   body.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 });
+var email = document.querySelector(".email");
+
+email.onclick = function () {
+  var text = document.querySelector("#email-address").innerText;
+  var elem = document.createElement("textarea");
+  document.body.appendChild(elem);
+  elem.value = text;
+  elem.select();
+  document.execCommand("copy");
+  document.body.removeChild(elem);
+};
+
+function copyElementText() {}
 },{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js"}],"../../../../.nvm/versions/node/v15.5.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';

@@ -8,6 +8,20 @@
 .email {
   font-size: 4rem;
   padding-bottom: 8rem;
+  line-height: 4rem;
+  cursor: pointer;
+}
+.email:hover .copy {
+  opacity: 1;
+}
+
+.copy {
+  font-size: 2rem;
+  line-height: 4rem;
+  position: absolute;
+  margin-left: 3%;
+  opacity: 0;
+  transition: all ease 1s;
 }
 
 .contact-links {
@@ -17,6 +31,7 @@
   }
 }
 
+//media links
 .media-link {
   position: relative;
 }

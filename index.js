@@ -22,3 +22,15 @@ fontBtn.addEventListener("click", (event) => {
   const body = document.querySelector("body");
   body.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
 });
+const email = document.querySelector(".email");
+email.onclick = () => {
+  const text = document.querySelector("#email-address").innerText;
+  const elem = document.createElement("textarea");
+  document.body.appendChild(elem);
+  elem.value = text;
+  elem.select();
+  document.execCommand("copy");
+  document.body.removeChild(elem);
+};
+
+function copyElementText() {}
