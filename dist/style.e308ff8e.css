@@ -65,6 +65,10 @@ a {
   fill: currentColor;
 }
 
+.sun {
+  fill: currentColor;
+}
+
 svg {
   height: 30%;
 }

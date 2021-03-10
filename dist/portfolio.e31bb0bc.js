@@ -3282,8 +3282,10 @@ var fontBtn = document.querySelector(".font-btn");
 darkBtn.onclick = function () {
   var body = document.querySelector("body");
   var moon = document.querySelector(".moon");
+  var sun = document.querySelector(".sun");
   body.classList.toggle("dark");
   moon.classList.toggle("hidden");
+  sun.classList.toggle("hidden");
 };
 
 fontBtn.addEventListener("click", function (event) {
