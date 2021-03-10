@@ -3281,7 +3281,9 @@ var fontBtn = document.querySelector(".font-btn");
 
 darkBtn.onclick = function () {
   var body = document.querySelector("body");
+  var moon = document.querySelector(".moon");
   body.classList.toggle("dark");
+  moon.classList.toggle("hidden");
 };
 
 fontBtn.addEventListener("click", function (event) {

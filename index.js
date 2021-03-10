@@ -11,7 +11,9 @@ const fontBtn = document.querySelector(".font-btn");
 
 darkBtn.onclick = () => {
   const body = document.querySelector("body");
+  const moon = document.querySelector(".moon");
   body.classList.toggle("dark");
+  moon.classList.toggle("hidden");
 };
 
 fontBtn.addEventListener("click", (event) => {
