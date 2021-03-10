@@ -8,10 +8,8 @@ const scroll = new LocomotiveScroll({
 
 const darkBtn = document.querySelector(".dark-btn");
 const fontBtn = document.querySelector(".font-btn");
-const fontColorList = ["black", "blue", "green", "red"];
-let fontColor = fontColorList[0];
 
-darkBtn.onclick = function () {
+darkBtn.onclick = () => {
   const body = document.querySelector("body");
   body.classList.toggle("dark");
 };

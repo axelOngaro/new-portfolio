@@ -3278,8 +3278,6 @@ var scroll = new _locomotiveScroll.default({
 });
 var darkBtn = document.querySelector(".dark-btn");
 var fontBtn = document.querySelector(".font-btn");
-var fontColorList = ["black", "blue", "green", "red"];
-var fontColor = fontColorList[0];
 
 darkBtn.onclick = function () {
   var body = document.querySelector("body");
