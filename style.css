@@ -34,19 +34,38 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   padding: 0 10%;
   padding-top: 1rem;
   font-size: 2rem;
   z-index: 1;
 }
 
-.header p {
-  width: 15vw;
+.header div {
+  cursor: pointer;
 }
 
-.header div {
-  width: 15vh;
-  cursor: pointer;
+.dark-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 10vh;
+}
+
+.moon {
+  fill: currentColor;
+}
+
+svg {
+  height: 30%;
 }
 
 .home {

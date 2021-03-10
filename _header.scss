@@ -3,15 +3,26 @@
   position: fixed;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   padding: 0 10%;
   padding-top: 1rem;
   font-size: 2rem;
   z-index: 1;
-  p {
-    width: 15vw;
-  }
+
   div {
-    width: 15vh;
     cursor: pointer;
   }
+}
+
+.dark-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+}
+.moon {
+  fill: currentColor;
+}
+svg {
+  height: 30%;
 }
