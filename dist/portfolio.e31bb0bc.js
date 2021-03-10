@@ -10440,17 +10440,10 @@ _ScrollTrigger.ScrollTrigger.scrollerProxy(".data-scroll-container", {
   pinType: document.querySelector(".data-scroll-container").style.transform ? "transform" : "fixed"
 });
 
-var tl = _gsap.default.to(".moon", {
-  rotate: 500,
+_gsap.default.to(".moon", {
+  ScrollTrigger: ".work",
+  rotation: 720,
   duration: 3
-});
-
-_ScrollTrigger.ScrollTrigger.create({
-  trigger: ".work",
-  start: "50% 50%",
-  end: "+=300",
-  scroller: ".data-scroll-container",
-  animation: tl
 });
 
 _ScrollTrigger.ScrollTrigger.addEventListener("refresh", function () {
@@ -10458,6 +10451,14 @@ _ScrollTrigger.ScrollTrigger.addEventListener("refresh", function () {
 });
 
 _ScrollTrigger.ScrollTrigger.refresh();
+
+_gsap.default.from(".intro", {
+  opacity: 0,
+  duration: 1,
+  y: -50,
+  stagger: 0.6
+}); //Button event handlers
+
 
 var darkBtn = document.querySelector(".dark-btn");
 var fontBtn = document.querySelector(".font-btn");
@@ -10515,7 +10516,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50340" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "58095" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

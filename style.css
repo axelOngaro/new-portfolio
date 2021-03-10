@@ -92,6 +92,10 @@ svg {
   font-size: 10rem;
 }
 
+.text-reveal {
+  display: block;
+}
+
 .about {
   min-height: 100vh;
   font-size: 4rem;

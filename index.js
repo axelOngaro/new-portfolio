@@ -8,6 +8,7 @@ const scroll = new LocomotiveScroll({
   smooth: true,
   direction: "vertical",
 });
+
 scroll.on("scroll", ScrollTrigger.update);
 ScrollTrigger.scrollerProxy(".data-scroll-container", {
   scrollTop(value) {
@@ -27,22 +28,18 @@ ScrollTrigger.scrollerProxy(".data-scroll-container", {
     ? "transform"
     : "fixed",
 });
-let tl = gsap.to(".moon", {
-  rotate: 500,
+gsap.to(".moon", {
+  ScrollTrigger: ".work",
+  rotation: 720,
   duration: 3,
-});
-
-ScrollTrigger.create({
-  trigger: ".work",
-  start: "50% 50%",
-  end: "+=300",
-  scroller: ".data-scroll-container",
-  animation: tl,
 });
 
 ScrollTrigger.addEventListener("refresh", () => scroll.update());
 ScrollTrigger.refresh();
 
+gsap.from(".intro", { opacity: 0, duration: 1, y: -50, stagger: 0.6 });
+
+//Button event handlers
 const darkBtn = document.querySelector(".dark-btn");
 const fontBtn = document.querySelector(".font-btn");
 
