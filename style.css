@@ -26,6 +26,10 @@ a {
   color: #f8efdf;
 }
 
+.white {
+  color: white;
+}
+
 .header {
   display: -webkit-box;
   display: -ms-flexbox;

@@ -1,21 +1,22 @@
 import LocomotiveScroll from "locomotive-scroll";
-import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { gsap } from "gsap";
 gsap.registerPlugin(ScrollTrigger);
 
-const scroll = new LocomotiveScroll({
-  el: document.querySelector("[data-scroll-container]"),
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector(".smooth-scroll"),
   smooth: true,
-  direction: "vertical",
 });
 
-scroll.on("scroll", ScrollTrigger.update);
-ScrollTrigger.scrollerProxy(".data-scroll-container", {
+locoScroll.on("scroll", ScrollTrigger.update);
+
+// tell ScrollTrigger to use these proxy methods for the ".smooth-scroll" element since Locomotive Scroll is hijacking things
+ScrollTrigger.scrollerProxy(".smooth-scroll", {
   scrollTop(value) {
     return arguments.length
-      ? scroll.scrollTo(value, 0, 0)
-      : scroll.scroll.instance.scroll.y;
-  },
+      ? locoScroll.scrollTo(value, 0, 0)
+      : locoScroll.scroll.instance.scroll.y;
+  }, // we don't have to define a scrollLeft because we're only scrolling vertically.
   getBoundingClientRect() {
     return {
       top: 0,
@@ -24,18 +25,115 @@ ScrollTrigger.scrollerProxy(".data-scroll-container", {
       height: window.innerHeight,
     };
   },
-  pinType: document.querySelector(".data-scroll-container").style.transform
+  // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
+  pinType: document.querySelector(".smooth-scroll").style.transform
     ? "transform"
     : "fixed",
 });
-gsap.to(".moon", {
-  ScrollTrigger: ".work",
-  rotation: 720,
-  duration: 3,
+
+gsap.to(".front", {
+  x: -1000,
+  scrollTrigger: {
+    trigger: ".front",
+    scroller: ".smooth-scroll",
+    scrub: true,
+  },
+});
+gsap.to(".back", {
+  x: -1000,
+  scrollTrigger: {
+    trigger: ".back",
+    scroller: ".smooth-scroll",
+    scrub: true,
+  },
+});
+gsap.to(".db", {
+  x: -1000,
+  scrollTrigger: {
+    trigger: ".db",
+    scroller: ".smooth-scroll",
+    scrub: true,
+  },
+});
+gsap.to(".cloud", {
+  x: -1000,
+  scrollTrigger: {
+    trigger: ".cloud",
+    scroller: ".smooth-scroll",
+    scrub: true,
+  },
+});
+gsap.to(".devops", {
+  x: -1000,
+  scrollTrigger: {
+    trigger: ".devops",
+    scroller: ".smooth-scroll",
+    scrub: true,
+  },
+});
+// gsap.to(".header", {
+//   scrollTrigger: {
+//     trigger: ".skills",
+//     scroller: ".smooth-scroll",
+//     scrub: "true",
+//     start: "top top",
+//     endTrigger: ".work",
+//     toggleClass: {
+//       targets: ".header",
+//       className: "white",
+//     },
+//   },
+// });
+
+// gsap.to("header", {
+//   color: "inherit",
+//   scrollTrigger: {
+//     trigger: ".work",
+//     start: "top top",
+//     scroller: ".smooth-scroll",
+//     scrub: true,
+//   },
+// });
+
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".skills",
+    scroller: ".smooth-scroll",
+    start: "50vh",
+    scrub: true,
+  },
+});
+tl.to(".skills", {
+  backgroundColor: "rgb(7, 90, 7)",
+});
+tl.to(".skills", {
+  backgroundColor: "red",
+});
+tl.to(".skills", {
+  backgroundColor: "rgb(192, 93, 27)",
+});
+tl.to(".skills", {
+  backgroundColor: "black",
 });
 
-ScrollTrigger.addEventListener("refresh", () => scroll.update());
-ScrollTrigger.refresh();
+// gsap.to(".skills", {
+//   backgroundColor: "green",
+//   scrollTrigger: {
+//     trigger: ".front",
+//     start: "50% 50%",
+//     scroller: ".smooth-scroll",
+//     scrub: true,
+//   },
+// });
+// gsap.fromTo(".skills", {
+//   ,
+//   scrollTrigger: {
+//     trigger: ".devops",
+//     start: "50% 50%",
+//     scroller: ".smooth-scroll",
+//     scrub: true,
+//   },
+// });
 
 gsap.from(".intro", { opacity: 0, duration: 1, y: -50, stagger: 0.6 });
 
@@ -68,3 +166,8 @@ email.onclick = () => {
   document.execCommand("copy");
   document.body.removeChild(elem);
 };
+
+ScrollTrigger.addEventListener("refresh", () => locoScroll.update());
+
+// after everything is set up, refresh() ScrollTrigger and update LocomotiveScroll because padding may have been added for pinning, etc.
+ScrollTrigger.refresh();
