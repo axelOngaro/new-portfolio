@@ -117,6 +117,7 @@ const tl = gsap.timeline({
     scrub: true,
   },
 });
+
 tl.to(".skills", {
   backgroundColor: "rgb(7, 90, 7)",
 });
@@ -167,7 +168,10 @@ darkBtn.onclick = () => {
 
 fontBtn.addEventListener("click", (event) => {
   const body = document.querySelector("body");
-  body.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+  gsap.to(body, {
+    color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+    duration: 1,
+  });
 });
 
 // Copy to clipboard

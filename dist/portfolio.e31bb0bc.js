@@ -10589,7 +10589,11 @@ darkBtn.onclick = function () {
 
 fontBtn.addEventListener("click", function (event) {
   var body = document.querySelector("body");
-  body.style.color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+
+  _gsap.gsap.to(body, {
+    color: "#" + Math.floor(Math.random() * 16777215).toString(16),
+    duration: 1
+  });
 }); // Copy to clipboard
 
 var email = document.querySelector(".email");
