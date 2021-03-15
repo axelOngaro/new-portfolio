@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   h2 {
-    font-size: 3rem;
+    font-size: 11rem;
+    font-weight: 400;
   }
 }
 
@@ -16,4 +17,10 @@
     padding: 2% 0;
     font-size: 10rem;
   }
+}
+
+.work-title {
+  display: flex;
+  min-height: 30vh;
+  align-items: center;
 }

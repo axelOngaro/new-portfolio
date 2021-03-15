@@ -10484,13 +10484,28 @@ _gsap.gsap.to(".devops", {
     scroller: ".smooth-scroll",
     scrub: true
   }
+});
+
+_gsap.gsap.to(".header", {
+  scrollTrigger: {
+    trigger: ".skills",
+    scroller: ".smooth-scroll",
+    scrub: "true",
+    start: "top top",
+    endTrigger: ".work",
+    end: "top top",
+    toggleClass: {
+      targets: ".header",
+      className: "white"
+    }
+  }
 }); // gsap.to(".header", {
 //   scrollTrigger: {
-//     trigger: ".skills",
+//     trigger: ".work",
 //     scroller: ".smooth-scroll",
 //     scrub: "true",
 //     start: "top top",
-//     endTrigger: ".work",
+//     end: 100,
 //     toggleClass: {
 //       targets: ".header",
 //       className: "white",
@@ -10551,7 +10566,12 @@ _gsap.gsap.from(".intro", {
   opacity: 0,
   duration: 1,
   y: -50,
-  stagger: 0.6
+  stagger: 0.5
+});
+
+_gsap.gsap.from(".header", {
+  opacity: 0,
+  duration: 3
 }); //Button event handlers
 
 
@@ -10618,7 +10638,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51024" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57930" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

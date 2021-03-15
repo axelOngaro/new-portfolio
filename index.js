@@ -71,13 +71,27 @@ gsap.to(".devops", {
     scrub: true,
   },
 });
+gsap.to(".header", {
+  scrollTrigger: {
+    trigger: ".skills",
+    scroller: ".smooth-scroll",
+    scrub: "true",
+    start: "top top",
+    endTrigger: ".work",
+    end: "top top",
+    toggleClass: {
+      targets: ".header",
+      className: "white",
+    },
+  },
+});
 // gsap.to(".header", {
 //   scrollTrigger: {
-//     trigger: ".skills",
+//     trigger: ".work",
 //     scroller: ".smooth-scroll",
 //     scrub: "true",
 //     start: "top top",
-//     endTrigger: ".work",
+//     end: 100,
 //     toggleClass: {
 //       targets: ".header",
 //       className: "white",
@@ -135,7 +149,8 @@ tl.to(".skills", {
 //   },
 // });
 
-gsap.from(".intro", { opacity: 0, duration: 1, y: -50, stagger: 0.6 });
+gsap.from(".intro", { opacity: 0, duration: 1, y: -50, stagger: 0.5 });
+gsap.from(".header", { opacity: 0, duration: 3 });
 
 //Button event handlers
 const darkBtn = document.querySelector(".dark-btn");
