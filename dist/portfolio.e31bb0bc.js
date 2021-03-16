@@ -4940,6 +4940,148 @@ ScrollTrigger.sort = function (func) {
 };
 
 _getGSAP() && gsap.registerPlugin(ScrollTrigger);
+},{}],"node_modules/gsap/CSSRulePlugin.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = exports.CSSRulePlugin = void 0;
+
+/*!
+ * CSSRulePlugin 3.6.0
+ * https://greensock.com
+ *
+ * @license Copyright 2008-2021, GreenSock. All rights reserved.
+ * Subject to the terms at https://greensock.com/standard-license or for
+ * Club GreenSock members, the agreement issued with that membership.
+ * @author: Jack Doyle, jack@greensock.com
+*/
+
+/* eslint-disable */
+var gsap,
+    _coreInitted,
+    _win,
+    _doc,
+    CSSPlugin,
+    _windowExists = function _windowExists() {
+  return typeof window !== "undefined";
+},
+    _getGSAP = function _getGSAP() {
+  return gsap || _windowExists() && (gsap = window.gsap) && gsap.registerPlugin && gsap;
+},
+    _checkRegister = function _checkRegister() {
+  if (!_coreInitted) {
+    _initCore();
+
+    if (!CSSPlugin) {
+      console.warn("Please gsap.registerPlugin(CSSPlugin, CSSRulePlugin)");
+    }
+  }
+
+  return _coreInitted;
+},
+    _initCore = function _initCore(core) {
+  gsap = core || _getGSAP();
+
+  if (_windowExists()) {
+    _win = window;
+    _doc = document;
+  }
+
+  if (gsap) {
+    CSSPlugin = gsap.plugins.css;
+
+    if (CSSPlugin) {
+      _coreInitted = 1;
+    }
+  }
+};
+
+var CSSRulePlugin = {
+  version: "3.6.0",
+  name: "cssRule",
+  init: function init(target, value, tween, index, targets) {
+    if (!_checkRegister() || typeof target.cssText === "undefined") {
+      return false;
+    }
+
+    var div = target._gsProxy = target._gsProxy || _doc.createElement("div");
+
+    this.ss = target;
+    this.style = div.style;
+    div.style.cssText = target.cssText;
+    CSSPlugin.prototype.init.call(this, div, value, tween, index, targets); //we just offload all the work to the regular CSSPlugin and then copy the cssText back over to the rule in the render() method. This allows us to have all of the updates to CSSPlugin automatically flow through to CSSRulePlugin instead of having to maintain both
+  },
+  render: function render(ratio, data) {
+    var pt = data._pt,
+        style = data.style,
+        ss = data.ss,
+        i;
+
+    while (pt) {
+      pt.r(ratio, pt.d);
+      pt = pt._next;
+    }
+
+    i = style.length;
+
+    while (--i > -1) {
+      ss[style[i]] = style[style[i]];
+    }
+  },
+  getRule: function getRule(selector) {
+    _checkRegister();
+
+    var ruleProp = _doc.all ? "rules" : "cssRules",
+        styleSheets = _doc.styleSheets,
+        i = styleSheets.length,
+        pseudo = selector.charAt(0) === ":",
+        j,
+        curSS,
+        cs,
+        a;
+    selector = (pseudo ? "" : ",") + selector.split("::").join(":").toLowerCase() + ","; //note: old versions of IE report tag name selectors as upper case, so we just change everything to lowercase.
+
+    if (pseudo) {
+      a = [];
+    }
+
+    while (i--) {
+      //Firefox may throw insecure operation errors when css is loaded from other domains, so try/catch.
+      try {
+        curSS = styleSheets[i][ruleProp];
+
+        if (!curSS) {
+          continue;
+        }
+
+        j = curSS.length;
+      } catch (e) {
+        console.warn(e);
+        continue;
+      }
+
+      while (--j > -1) {
+        cs = curSS[j];
+
+        if (cs.selectorText && ("," + cs.selectorText.split("::").join(":").toLowerCase() + ",").indexOf(selector) !== -1) {
+          //note: IE adds an extra ":" to pseudo selectors, so .myClass:after becomes .myClass::after, so we need to strip the extra one out.
+          if (pseudo) {
+            a.push(cs.style);
+          } else {
+            return cs.style;
+          }
+        }
+      }
+    }
+
+    return a;
+  },
+  register: _initCore
+};
+exports.default = exports.CSSRulePlugin = CSSRulePlugin;
+_getGSAP() && gsap.registerPlugin(CSSRulePlugin);
 },{}],"node_modules/gsap/gsap-core.js":[function(require,module,exports) {
 "use strict";
 
@@ -10412,11 +10554,13 @@ var _locomotiveScroll = _interopRequireDefault(require("locomotive-scroll"));
 
 var _ScrollTrigger = require("gsap/ScrollTrigger");
 
+var _CSSRulePlugin = require("gsap/CSSRulePlugin");
+
 var _gsap = require("gsap");
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-_gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger);
+_gsap.gsap.registerPlugin(_ScrollTrigger.ScrollTrigger, _CSSRulePlugin.CSSRulePlugin);
 
 var locoScroll = new _locomotiveScroll.default({
   el: document.querySelector(".smooth-scroll"),
@@ -10440,6 +10584,33 @@ _ScrollTrigger.ScrollTrigger.scrollerProxy(".smooth-scroll", {
   // LocomotiveScroll handles things completely differently on mobile devices - it doesn't even transform the container at all! So to get the correct behavior and avoid jitters, we should pin things with position: fixed on mobile. We sense it by checking to see if there's a transform applied to the container (the LocomotiveScroll-controlled element).
   pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
 });
+
+_gsap.gsap.to(".work-title--2", {
+  x: 750,
+  color: "red",
+  opacity: 1,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".work",
+    start: "0 50%",
+    scrub: true,
+    end: "top top"
+  }
+});
+
+_gsap.gsap.to(".work-title--3", {
+  x: 1500,
+  color: "blue",
+  opacity: 1,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".work",
+    start: "0 50%",
+    scrub: true,
+    end: "top top"
+  }
+}); //scrolltrigger animations
+
 
 var horizontalScroll = function horizontalScroll(target) {
   _gsap.gsap.to(target, {
@@ -10492,8 +10663,18 @@ tl.to(".skills", {
   backgroundColor: "rgb(192, 93, 27)"
 });
 tl.to(".skills", {
-  backgroundColor: "black"
-}); // });
+  backgroundColor: "rgb(24, 23, 23)"
+});
+
+_gsap.gsap.to(".contact-banner--text", {
+  x: -500,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".contact-banner",
+    scrub: true
+  }
+}); //Loading animations
+
 
 _gsap.gsap.from(".intro", {
   opacity: 0,
@@ -10504,7 +10685,7 @@ _gsap.gsap.from(".intro", {
 
 _gsap.gsap.from(".header", {
   opacity: 0,
-  duration: 3
+  duration: 2
 }); //Button event handlers
 
 
@@ -10547,7 +10728,7 @@ _ScrollTrigger.ScrollTrigger.addEventListener("refresh", function () {
 
 
 _ScrollTrigger.ScrollTrigger.refresh();
-},{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","gsap/ScrollTrigger":"node_modules/gsap/ScrollTrigger.js","gsap":"node_modules/gsap/index.js"}],"../../../../.nvm/versions/node/v15.5.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","gsap/ScrollTrigger":"node_modules/gsap/ScrollTrigger.js","gsap/CSSRulePlugin":"node_modules/gsap/CSSRulePlugin.js","gsap":"node_modules/gsap/index.js"}],"../../../../.nvm/versions/node/v15.5.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -10575,7 +10756,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65502" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50399" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

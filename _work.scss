@@ -2,6 +2,7 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  color: inherit;
   h2 {
     font-size: 11rem;
     font-weight: 400;
@@ -20,7 +21,24 @@
 }
 
 .work-title {
-  display: flex;
+  // display: flex;
   min-height: 30vh;
   align-items: center;
+}
+.work-title--1 {
+  position: relative;
+}
+.work-title--2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: inherit;
+  opacity: 0;
+}
+.work-title--3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: inherit;
+  opacity: 0;
 }

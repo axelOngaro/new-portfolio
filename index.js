@@ -1,7 +1,8 @@
 import LocomotiveScroll from "locomotive-scroll";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 import { gsap } from "gsap";
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, CSSRulePlugin);
 
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector(".smooth-scroll"),
@@ -31,6 +32,31 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
     : "fixed",
 });
 
+gsap.to(".work-title--2", {
+  x: 750,
+  color: "red",
+  opacity: 1,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".work",
+    start: "0 50%",
+    scrub: true,
+    end: "top top",
+  },
+});
+gsap.to(".work-title--3", {
+  x: 1500,
+  color: "blue",
+  opacity: 1,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".work",
+    start: "0 50%",
+    scrub: true,
+    end: "top top",
+  },
+});
+//scrolltrigger animations
 const horizontalScroll = (target) => {
   gsap.to(target, {
     x: -1000,
@@ -81,13 +107,21 @@ tl.to(".skills", {
   backgroundColor: "rgb(192, 93, 27)",
 });
 tl.to(".skills", {
-  backgroundColor: "black",
+  backgroundColor: "rgb(24, 23, 23)",
 });
 
-// });
+gsap.to(".contact-banner--text", {
+  x: -500,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".contact-banner",
+    scrub: true,
+  },
+});
 
+//Loading animations
 gsap.from(".intro", { opacity: 0, duration: 1, y: -50, stagger: 0.5 });
-gsap.from(".header", { opacity: 0, duration: 3 });
+gsap.from(".header", { opacity: 0, duration: 2 });
 
 //Button event handlers
 const darkBtn = document.querySelector(".dark-btn");
