@@ -31,46 +31,22 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
     : "fixed",
 });
 
-gsap.to(".front", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".front",
-    scroller: ".smooth-scroll",
-    scrub: true,
-  },
-});
-gsap.to(".back", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".back",
-    scroller: ".smooth-scroll",
-    scrub: true,
-  },
-});
-gsap.to(".db", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".db",
-    scroller: ".smooth-scroll",
-    scrub: true,
-  },
-});
-gsap.to(".cloud", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".cloud",
-    scroller: ".smooth-scroll",
-    scrub: true,
-  },
-});
-gsap.to(".devops", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".devops",
-    scroller: ".smooth-scroll",
-    scrub: true,
-  },
-});
+const horizontalScroll = (target) => {
+  gsap.to(target, {
+    x: -1000,
+    scrollTrigger: {
+      trigger: target,
+      scroller: ".smooth-scroll",
+      scrub: true,
+    },
+  });
+};
+horizontalScroll(".front");
+horizontalScroll(".back");
+horizontalScroll(".db");
+horizontalScroll(".devops");
+horizontalScroll(".cloud");
+
 gsap.to(".header", {
   scrollTrigger: {
     trigger: ".skills",
@@ -85,29 +61,6 @@ gsap.to(".header", {
     },
   },
 });
-// gsap.to(".header", {
-//   scrollTrigger: {
-//     trigger: ".work",
-//     scroller: ".smooth-scroll",
-//     scrub: "true",
-//     start: "top top",
-//     end: 100,
-//     toggleClass: {
-//       targets: ".header",
-//       className: "white",
-//     },
-//   },
-// });
-
-// gsap.to("header", {
-//   color: "inherit",
-//   scrollTrigger: {
-//     trigger: ".work",
-//     start: "top top",
-//     scroller: ".smooth-scroll",
-//     scrub: true,
-//   },
-// });
 
 const tl = gsap.timeline({
   scrollTrigger: {
@@ -131,23 +84,6 @@ tl.to(".skills", {
   backgroundColor: "black",
 });
 
-// gsap.to(".skills", {
-//   backgroundColor: "green",
-//   scrollTrigger: {
-//     trigger: ".front",
-//     start: "50% 50%",
-//     scroller: ".smooth-scroll",
-//     scrub: true,
-//   },
-// });
-// gsap.fromTo(".skills", {
-//   ,
-//   scrollTrigger: {
-//     trigger: ".devops",
-//     start: "50% 50%",
-//     scroller: ".smooth-scroll",
-//     scrub: true,
-//   },
 // });
 
 gsap.from(".intro", { opacity: 0, duration: 1, y: -50, stagger: 0.5 });

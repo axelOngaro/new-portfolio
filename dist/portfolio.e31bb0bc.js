@@ -10441,50 +10441,22 @@ _ScrollTrigger.ScrollTrigger.scrollerProxy(".smooth-scroll", {
   pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
 });
 
-_gsap.gsap.to(".front", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".front",
-    scroller: ".smooth-scroll",
-    scrub: true
-  }
-});
+var horizontalScroll = function horizontalScroll(target) {
+  _gsap.gsap.to(target, {
+    x: -1000,
+    scrollTrigger: {
+      trigger: target,
+      scroller: ".smooth-scroll",
+      scrub: true
+    }
+  });
+};
 
-_gsap.gsap.to(".back", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".back",
-    scroller: ".smooth-scroll",
-    scrub: true
-  }
-});
-
-_gsap.gsap.to(".db", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".db",
-    scroller: ".smooth-scroll",
-    scrub: true
-  }
-});
-
-_gsap.gsap.to(".cloud", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".cloud",
-    scroller: ".smooth-scroll",
-    scrub: true
-  }
-});
-
-_gsap.gsap.to(".devops", {
-  x: -1000,
-  scrollTrigger: {
-    trigger: ".devops",
-    scroller: ".smooth-scroll",
-    scrub: true
-  }
-});
+horizontalScroll(".front");
+horizontalScroll(".back");
+horizontalScroll(".db");
+horizontalScroll(".devops");
+horizontalScroll(".cloud");
 
 _gsap.gsap.to(".header", {
   scrollTrigger: {
@@ -10499,29 +10471,7 @@ _gsap.gsap.to(".header", {
       className: "white"
     }
   }
-}); // gsap.to(".header", {
-//   scrollTrigger: {
-//     trigger: ".work",
-//     scroller: ".smooth-scroll",
-//     scrub: "true",
-//     start: "top top",
-//     end: 100,
-//     toggleClass: {
-//       targets: ".header",
-//       className: "white",
-//     },
-//   },
-// });
-// gsap.to("header", {
-//   color: "inherit",
-//   scrollTrigger: {
-//     trigger: ".work",
-//     start: "top top",
-//     scroller: ".smooth-scroll",
-//     scrub: true,
-//   },
-// });
-
+});
 
 var tl = _gsap.gsap.timeline({
   scrollTrigger: {
@@ -10543,24 +10493,7 @@ tl.to(".skills", {
 });
 tl.to(".skills", {
   backgroundColor: "black"
-}); // gsap.to(".skills", {
-//   backgroundColor: "green",
-//   scrollTrigger: {
-//     trigger: ".front",
-//     start: "50% 50%",
-//     scroller: ".smooth-scroll",
-//     scrub: true,
-//   },
-// });
-// gsap.fromTo(".skills", {
-//   ,
-//   scrollTrigger: {
-//     trigger: ".devops",
-//     start: "50% 50%",
-//     scroller: ".smooth-scroll",
-//     scrub: true,
-//   },
-// });
+}); // });
 
 _gsap.gsap.from(".intro", {
   opacity: 0,
@@ -10642,7 +10575,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57930" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "65502" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
