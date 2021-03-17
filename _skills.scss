@@ -20,3 +20,23 @@
 .devops {
   background-color: transparent;
 }
+.skills-title {
+  h2 {
+    font-size: 11rem;
+    font-weight: 400;
+  }
+
+  min-height: 30vh;
+  align-items: center;
+}
+.skills-title--1 {
+  position: relative;
+}
+.skills-title--2,
+.skills-title--3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: inherit;
+  opacity: 0;
+}

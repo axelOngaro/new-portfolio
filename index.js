@@ -32,31 +32,20 @@ ScrollTrigger.scrollerProxy(".smooth-scroll", {
     : "fixed",
 });
 
-gsap.to(".work-title--2", {
-  x: 750,
-  color: "red",
-  opacity: 1,
-  scrollTrigger: {
-    scroller: ".smooth-scroll",
-    trigger: ".work",
-    start: "0 50%",
-    scrub: true,
-    end: "top top",
-  },
-});
-gsap.to(".work-title--3", {
-  x: 1500,
-  color: "blue",
-  opacity: 1,
-  scrollTrigger: {
-    scroller: ".smooth-scroll",
-    trigger: ".work",
-    start: "0 50%",
-    scrub: true,
-    end: "top top",
-  },
-});
-//scrolltrigger animations
+const titleAnimation = (target, trigger, x, color) => {
+  gsap.to(target, {
+    x: x,
+    color: color,
+    opacity: 1,
+    scrollTrigger: {
+      scroller: ".smooth-scroll",
+      trigger: trigger,
+      start: "0 50%",
+      scrub: true,
+      end: "top top",
+    },
+  });
+};
 const horizontalScroll = (target) => {
   gsap.to(target, {
     x: -1000,
@@ -67,6 +56,12 @@ const horizontalScroll = (target) => {
     },
   });
 };
+
+titleAnimation(".work-title--2", ".work", 750, "red");
+titleAnimation(".work-title--3", ".work", 1500, "blue");
+titleAnimation(".skills-title--2", ".skills-title", 750, "red");
+titleAnimation(".skills-title--3", ".skills-title", 1500, "blue");
+
 horizontalScroll(".front");
 horizontalScroll(".back");
 horizontalScroll(".db");

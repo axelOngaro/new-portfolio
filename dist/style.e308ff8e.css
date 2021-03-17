@@ -9,7 +9,7 @@ body {
   font-size: 62.5%;
   font-family: "Jost", sans-serif;
   color: #0f012e;
-  background-color: #f8efdf;
+  background-color: #faf5ed;
 }
 
 li {
@@ -153,6 +153,31 @@ svg {
   background-color: transparent;
 }
 
+.skills-title {
+  min-height: 30vh;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.skills-title h2 {
+  font-size: 11rem;
+  font-weight: 400;
+}
+
+.skills-title--1 {
+  position: relative;
+}
+
+.skills-title--2,
+.skills-title--3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: inherit;
+  opacity: 0;
+}
+
 .work {
   min-height: 100vh;
   display: -webkit-box;
@@ -194,21 +219,16 @@ svg {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-top: 25vh;
 }
 
 .work-title--1 {
   position: relative;
 }
 
-.work-title--2 {
-  position: absolute;
-  top: 0;
-  left: 0;
-  color: inherit;
-  opacity: 0;
-}
-
+.work-title--2,
 .work-title--3 {
+  margin-top: 25vh;
   position: absolute;
   top: 0;
   left: 0;

@@ -10585,32 +10585,20 @@ _ScrollTrigger.ScrollTrigger.scrollerProxy(".smooth-scroll", {
   pinType: document.querySelector(".smooth-scroll").style.transform ? "transform" : "fixed"
 });
 
-_gsap.gsap.to(".work-title--2", {
-  x: 750,
-  color: "red",
-  opacity: 1,
-  scrollTrigger: {
-    scroller: ".smooth-scroll",
-    trigger: ".work",
-    start: "0 50%",
-    scrub: true,
-    end: "top top"
-  }
-});
-
-_gsap.gsap.to(".work-title--3", {
-  x: 1500,
-  color: "blue",
-  opacity: 1,
-  scrollTrigger: {
-    scroller: ".smooth-scroll",
-    trigger: ".work",
-    start: "0 50%",
-    scrub: true,
-    end: "top top"
-  }
-}); //scrolltrigger animations
-
+var titleAnimation = function titleAnimation(target, trigger, x, color) {
+  _gsap.gsap.to(target, {
+    x: x,
+    color: color,
+    opacity: 1,
+    scrollTrigger: {
+      scroller: ".smooth-scroll",
+      trigger: trigger,
+      start: "0 50%",
+      scrub: true,
+      end: "top top"
+    }
+  });
+};
 
 var horizontalScroll = function horizontalScroll(target) {
   _gsap.gsap.to(target, {
@@ -10623,6 +10611,10 @@ var horizontalScroll = function horizontalScroll(target) {
   });
 };
 
+titleAnimation(".work-title--2", ".work", 750, "red");
+titleAnimation(".work-title--3", ".work", 1500, "blue");
+titleAnimation(".skills-title--2", ".skills-title", 750, "red");
+titleAnimation(".skills-title--3", ".skills-title", 1500, "blue");
 horizontalScroll(".front");
 horizontalScroll(".back");
 horizontalScroll(".db");
@@ -10756,7 +10748,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50399" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53777" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
