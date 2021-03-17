@@ -11,23 +11,6 @@
   line-height: 6rem;
   cursor: pointer;
   position: relative;
-
-  &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    height: 2px;
-    background-color: currentColor;
-    transform: scaleX(0);
-    transform-origin: right;
-    transition: transform 250ms ease-in;
-  }
-  &:hover::after {
-    transform: scaleX(1);
-    transform-origin: left;
-  }
 }
 
 .email:hover .copy {
@@ -73,4 +56,8 @@
     transform: scaleX(1);
     transform-origin: left;
   }
+}
+
+.blured {
+  filter: blur(4px);
 }

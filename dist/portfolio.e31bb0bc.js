@@ -10700,9 +10700,19 @@ fontBtn.addEventListener("click", function (event) {
     color: "#" + Math.floor(Math.random() * 16777215).toString(16),
     duration: 1
   });
-}); // Copy to clipboard
+}); //Hover effects
 
 var email = document.querySelector(".email");
+var header = document.querySelector(".header");
+var contactLinks = document.querySelector(".contact-links");
+email.addEventListener("mouseenter", function () {
+  header.classList.toggle("blured");
+  contactLinks.classList.toggle("blured");
+});
+email.addEventListener("mouseleave", function () {
+  header.classList.toggle("blured");
+  contactLinks.classList.toggle("blured");
+}); // Copy to clipboard
 
 email.onclick = function () {
   var text = document.querySelector("#email-address").innerText;

@@ -139,8 +139,21 @@ fontBtn.addEventListener("click", (event) => {
   });
 });
 
-// Copy to clipboard
+//Hover effects
 const email = document.querySelector(".email");
+const header = document.querySelector(".header");
+const contactLinks = document.querySelector(".contact-links");
+
+email.addEventListener("mouseenter", () => {
+  header.classList.toggle("blured");
+  contactLinks.classList.toggle("blured");
+});
+email.addEventListener("mouseleave", () => {
+  header.classList.toggle("blured");
+  contactLinks.classList.toggle("blured");
+});
+
+// Copy to clipboard
 email.onclick = () => {
   const text = document.querySelector("#email-address").innerText;
   const elem = document.createElement("textarea");

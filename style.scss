@@ -8,6 +8,8 @@ body {
   font-family: "Jost", sans-serif;
   color: rgb(15, 1, 46);
   background-color: rgb(250, 245, 237);
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
 li {
   list-style: none;
