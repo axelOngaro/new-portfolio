@@ -29,6 +29,8 @@
 
 .contact-links {
   font-size: 3rem;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
   li {
     padding: 1rem;
   }

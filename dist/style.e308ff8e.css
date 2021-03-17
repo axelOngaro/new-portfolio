@@ -49,6 +49,9 @@ a {
   padding-top: 1rem;
   font-size: 2rem;
   z-index: 1;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
 
 .header div {
@@ -281,6 +284,9 @@ svg {
 
 .contact-links {
   font-size: 3rem;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
 
 .contact-links li {
