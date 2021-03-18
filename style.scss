@@ -3,8 +3,10 @@
   margin: 0;
   box-sizing: border-box;
 }
+html {
+  font-size: 1.4em;
+}
 body {
-  font-size: 62.5%;
   font-family: "Jost", sans-serif;
   color: rgb(15, 1, 46);
   background-color: rgb(250, 245, 237);
@@ -34,3 +36,11 @@ a {
 @import "work";
 @import "contact";
 @import "contactBanner";
+
+//laptop and desktops
+
+@media only screen and (min-width: 1224px) {
+  html {
+    font-size: 1em;
+  }
+}
