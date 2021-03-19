@@ -77,18 +77,30 @@ a {
 
 .moon {
   fill: currentColor;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
 
 .sun {
   fill: currentColor;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
 
 svg {
   height: 30%;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
 
 .hidden {
   display: none;
+  -webkit-transition: all 0.3s linear 0s;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
 
 .home {
@@ -365,9 +377,6 @@ svg {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
     margin-bottom: 2rem;
   }
   .email .copy {

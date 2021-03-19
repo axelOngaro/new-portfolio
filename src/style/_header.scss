@@ -34,4 +34,6 @@ svg {
 
 .hidden {
   display: none;
+  transition: all 0.3s linear 0s;
+  -webkit-transition: all 0.5s linear 0s;
 }
