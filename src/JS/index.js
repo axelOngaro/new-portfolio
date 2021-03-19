@@ -83,6 +83,17 @@ gsap.to(".header", {
   },
 });
 
+gsap.to(".skills", {
+  opacity: 1,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".skills",
+    endTrigger: ".back",
+    end: "50% 50%",
+    scrub: true,
+  },
+});
+
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".skills",

@@ -10636,6 +10636,17 @@ _gsap.gsap.to(".header", {
   }
 });
 
+_gsap.gsap.to(".skills", {
+  opacity: 1,
+  scrollTrigger: {
+    scroller: ".smooth-scroll",
+    trigger: ".skills",
+    endTrigger: ".back",
+    end: "50% 50%",
+    scrub: true
+  }
+});
+
 var tl = _gsap.gsap.timeline({
   scrollTrigger: {
     trigger: ".skills",
@@ -10730,7 +10741,7 @@ _ScrollTrigger.ScrollTrigger.addEventListener("refresh", function () {
 
 
 _ScrollTrigger.ScrollTrigger.refresh();
-},{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","gsap/ScrollTrigger":"node_modules/gsap/ScrollTrigger.js","gsap/CSSRulePlugin":"node_modules/gsap/CSSRulePlugin.js","gsap":"node_modules/gsap/index.js"}],"../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"locomotive-scroll":"node_modules/locomotive-scroll/dist/locomotive-scroll.esm.js","gsap/ScrollTrigger":"node_modules/gsap/ScrollTrigger.js","gsap/CSSRulePlugin":"node_modules/gsap/CSSRulePlugin.js","gsap":"node_modules/gsap/index.js"}],"../../../../.nvm/versions/node/v15.5.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -10758,7 +10769,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "64448" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50893" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -10934,5 +10945,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/JS/index.js"], null)
+},{}]},{},["../../../../.nvm/versions/node/v15.5.0/lib/node_modules/parcel-bundler/src/builtins/hmr-runtime.js","src/JS/index.js"], null)
 //# sourceMappingURL=/JS.634691b8.js.map
