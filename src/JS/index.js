@@ -126,8 +126,13 @@ gsap.to(".contact-banner--text", {
 });
 
 //Loading animations
-gsap.from(".intro", { opacity: 0, duration: 1, y: -50, stagger: 0.5 });
-gsap.from(".header", { opacity: 0, duration: 2 });
+gsap.to(".intro", {
+  opacity: 1,
+  duration: 1,
+  y: 50,
+  stagger: 0.5,
+});
+gsap.to(".header", { opacity: 1, duration: 2 });
 
 //Button event handlers
 const darkBtn = document.querySelector(".dark-btn");

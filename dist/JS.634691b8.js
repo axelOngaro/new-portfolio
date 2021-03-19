@@ -10679,15 +10679,15 @@ _gsap.gsap.to(".contact-banner--text", {
 }); //Loading animations
 
 
-_gsap.gsap.from(".intro", {
-  opacity: 0,
+_gsap.gsap.to(".intro", {
+  opacity: 1,
   duration: 1,
-  y: -50,
+  y: 50,
   stagger: 0.5
 });
 
-_gsap.gsap.from(".header", {
-  opacity: 0,
+_gsap.gsap.to(".header", {
+  opacity: 1,
   duration: 2
 }); //Button event handlers
 
@@ -10769,7 +10769,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50893" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "57971" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
