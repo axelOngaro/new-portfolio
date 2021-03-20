@@ -77,23 +77,14 @@ a {
 
 .moon {
   fill: currentColor;
-  -webkit-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;
-  -webkit-transition: all 0.5s linear 0s;
 }
 
 .sun {
   fill: currentColor;
-  -webkit-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;
-  -webkit-transition: all 0.5s linear 0s;
 }
 
 svg {
   height: 30%;
-  -webkit-transition: all 0.3s linear 0s;
-  transition: all 0.3s linear 0s;
-  -webkit-transition: all 0.5s linear 0s;
 }
 
 .hidden {
@@ -357,6 +348,7 @@ svg {
   }
   body {
     max-width: 100vw;
+    overflow-x: hidden;
   }
   .home {
     font-size: 3rem;
